@@ -216,6 +216,7 @@ function create_config( )
   config = {
     enabled_plugins = {
     "all",
+    "expire",
     "anti_spam",
     "banhammer",
     "Groups",
@@ -231,21 +232,28 @@ function create_config( )
     "supergroup",
     "language",
     "whitelist",
+    "rank_sticker",
     "tools"
     },
     vip_users = {}, --vip users
-    sudo_users = {111984481,204876190,67647823,tonumber(our_id)},--Sudo users
+    sudo_users = {140247630,tonumber(our_id)},--Sudo users
     support_gp = {},--Support id
     moderation = {data = 'data/adv.json'},
-    about_text = [[*IN THE NAME OF ALLAH*
-This is an original bot and based on (AdvanSource, version 4 final).
-Copyright all right reserved and you must respect all laws.
+    about_text = [[<code>ΞDGE TG</code>
+---------------------------------------------
+|<code>An Advanced Bot Based On</code> #LUA & #advan <code>Source</code>|
 
-Source: https://github.com/janlou/AdvanSource
-Channel: @AdvanTm
-Messenger: @Advanbot
-Creator: @janlou
-Site: http://StoreVps.ir
+> <code>Bot Number :</code> +1 302 261 8972
+---------------------------------------------
+#Developer :
+[@IR_Telegram_Developer]
+[@SpartacusTeam_Bot]
+---------------------------------------------
+ #Sudoers :
+1 > [Not found]
+2 > [Not found]
+---------------------------------------------
+> <code>Channel :</code> @SpartaSoft
 ]],
     --Start rate:
     Group_rate = [[]],
