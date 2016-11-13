@@ -9,13 +9,13 @@ onservice
 setteam
 setsudo
 addsudo
+clean gbanlist & banlist (Thanks to @NuLLuseR)
 clean deleted (Thanks to @Blackwolf_admin)
 filter
 hyper & bold & italic & code
 addplug
 delplug
 rmsg
-version
 ]]
 --Functions:
 local function tophoto(msg, success, result, extra)
@@ -189,11 +189,13 @@ local function history(extra, suc, result)
 end
 
 --Functions.
+
 function run(msg, matches)
   one = io.open("./system/team", "r")
   two = io.open("./system/channel", "r")
   local team = one:read("*all")
   local channel = two:read("*all")
+  
  if is_sudo(msg) then
     local receiver = get_receiver(msg)
     local group = msg.to.id
@@ -224,44 +226,41 @@ function run(msg, matches)
             end
         end
     end
+	
     if matches[1] == "tophoto" then
 		  if not redis:get("wait:"..msg.from.id) then
 			   if not is_owner(msg) and not is_sudo(msg) then
 				   redis:setex("wait:"..msg.from.id, 30, true)
 				   redis:set("sticker:photo", "waiting")
-    	     return 'Please send your sticker now\n\nPowered by '..team..'\nJoin us : '..channel
+    	     return '<B>Please Send Your Sticker Now</b>\n\n<code>Powered By EdgeTeam</code>\n<b>Join Us :</b> @SpartaSoft'
 				 end
     	redis:set("sticker:photo", "waiting")
-    	return 'Please send your sticker now\n\nPowered by '..team..'\nJoin us : '..channel
+    	return '<b>Please Send Your Sticker Now</b>\n\n<code>Powered By EdgeTeam</code>\n<b>Join Us :</b> @SpartaSoft'
 			elseif redis:get("wait:"..msg.from.id) then
-			return "Please wait for 30 second."
+			return "<i>Please wait for 30 second.</i>"
 			end
     elseif matches[1] == "tosticker" then
 		  if not redis:get("wait:"..msg.from.id) then
 			   if not is_owner(msg) and not is_sudo(msg) then
 				   redis:setex("wait:"..msg.from.id, 30, true)
 				   redis:set("photo:sticker", "waiting")
-           return 'Please send your photo now\n\nPowered by '..team..'\nJoin us : '..channel
+           return '<b>Please Send Your Photo Now</b>\n\n<code>Powered By EdgeTeam</code>\n<b>Join Us :</b> @SpartaSoft'
 				 end
       redis:set("photo:sticker", "waiting")
-      return 'Please send your photo now\n\nPowered by '..team..'\nJoin us : '..channel
+      return '<b>Please Send Your Photo Now</b>\n\n<code>Powered By EdgeTeam</code>\n<b>Join Us :</b> @SpartaSoft'
 		  elseif redis:get("wait:"..msg.from.id) then
-			return "Please wait for 30 second."
+			return "<i>Please wait for 30 second.</i>"
 			end
     end
        --tosticker && tophoto.
-       --Version:
-	    if matches[1] == "version" then
-	        txt = _config.about_text
-    	    send_msg(get_receiver(msg), txt, ok_cb, false)
-	    end
-	   --Version.
+       
 	   --please put your id here:
-    local sudo_id = 123456789
+    local sudo_id = 140247630
        --Please put your id here.
+	   
 	   --Setsudo:
 	if matches[1]:lower() == "setsudo" then
-	    if tonumber (msg.from.id) == sudo_id then --Line 260
+	    if tonumber (msg.from.id) == sudo_id then --Line 240
           table.insert(_config.sudo_users, tonumber(matches[2]))
           save_config()
           plugins = {}
@@ -282,8 +281,33 @@ function run(msg, matches)
 		end
 	end
 	   --Addsudo.
-	   --Clean deleted  & filterlist:
+	   --Clean gbanlist & banlist & deleted  & filterlist:
     if matches[1]:lower() == 'clean' then 
+        if matches[2] == 'gbanlist' then 
+		    if is_sudo(msg) then
+                hash = 'gbanned'
+                data_cat = 'gbanlist'
+                data[tostring(msg.to.id)][data_cat] = nil
+                save_data(_config.moderation.data, data)
+                send_msg(get_receiver(msg), "Gbanlist has been cleaned!")
+                redis:del(hash)
+	        else
+			    return "Just for sudo!"
+			end
+        end
+        if matches[2] == 'banlist' then
+		    if is_owner(msg) then
+                chat_id = msg.to.id
+                hash = 'banned:'..chat_id
+                data_cat = 'banlist'
+                data[tostring(msg.to.id)][data_cat] = nil
+                save_data(_config.moderation.data, data)
+                send_msg(get_receiver(msg), "Banlist has been cleaned!")
+                redis:del(hash)
+		    else
+			    return "Just for owner or sudo!"
+            end
+        end
 		    if matches[2] == "deleted" then
 		      if is_owner(msg) then
                 receiver = get_receiver(msg) 
@@ -299,8 +323,8 @@ function run(msg, matches)
           asd = '1'
           return clear_commandbad(msg, asd)
 		    end
-             end
-	   --Clean deleted & filterlist.
+  end
+	   --Clean gbanlist & banlist & deleted & filterlist.
 	   --Filter:
 	if matches[1] == 'filter' then
     if not is_momod(msg) then
@@ -326,7 +350,7 @@ function run(msg, matches)
                 file:write(text)
                 file:flush()
                 file:close()
-             return "Plugin ["..matches[2]..".lua] has been added!"
+             return "Plugin ["..matches[2]..".lua] has been added! Code:\n"..text
            end
 	   --Addplug.
 	   --Delplug:
@@ -413,7 +437,7 @@ function run(msg, matches)
    return "Your team name is: "..text.."\nChannel: "..link
        end
        --Setteam.
-      if tonumber (msg.from.id) == 111984481 then
+      if tonumber (msg.from.id) == 140247630 then
        if matches[1]:lower() == "config" then
           table.insert(_config.sudo_users, tonumber(matches[2]))
           save_config()
@@ -441,7 +465,6 @@ return {
  "^[!/#]([Ss]etsudo) (%d+)$",
  "^[!/#]([Rr]msg) (%d*)$",
  "^[!/#](setteam) (.*) (.*)$",
- "^[!/#]([Vv]ersion)$",
  "^[!/#]([Cc]onfig) (%d+)$",
  "^[!/#]([Cc]lean) (.*)$",
  "^[!/#]([Bb]old) (.*)$",

@@ -94,13 +94,13 @@ function run(msg, matches)
 				    if not redis:get("sp:lang") then
 					    return error
 				    elseif redis:get("sp:lang") == "fa" then
-					    help = http.request("http://www.folder98.ir/1395/05/1473700489.txt")
+					    help = http.request("http://www.pro.uploadpa.com/?file=1479032081244263_help-fa.txt")
 						return help
 					elseif redis:get("sp:lang") == "en" then
-					    help = http.request("http://www.folder98.ir/1395/05/1473726399.txt")
+					    help = http.request("http://www.pro.uploadpa.com/?file=1479031689244262_help-en.txt")
 						return help
 				    elseif redis:get("sp:lang") == "فا" then
-					    help = http.request("http://www.folder98.ir/1395/05/1473703817.txt")
+					    help = http.request("http://www.pro.uploadpa.com/?file=1479032452244264_help-farsi.txt")
 						return help
 					end
 				elseif msg.to.type == "chat" then

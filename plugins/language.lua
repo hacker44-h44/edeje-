@@ -9,8 +9,8 @@ function run(msg, matches)
   if msg.to.type == 'channel' then
  if matches[1] == "setlang" and matches[2] == "fa" then
     redis:set("sp:lang", "fa")
-    file = http.request("http://nahrup.ir/view/811/supergroup-fa.txt")
-	security = http.request("http://nahrup.ir/view/815/security-fa.txt")
+    file = http.request("http://www.pro.uploadpa.com/?file=1479020942244237_supergroup-fa.txt")
+	security = http.request("http://www.pro.uploadpa.com/?file=1479029177244255_security-fa.txt")
     local b = 1
     while b ~= 0 do
     file = file:trim()
@@ -29,11 +29,11 @@ function run(msg, matches)
       sysa:flush()
       sysa:close()
 	  reload_plugins( )
-	  return "<i>زبان سوپرگپ با موفقیت به فارسی با دستورات انگلیسی تغییر کرد</i>"
+	  return "<code>زبان ربات توسط :</code>\n|"..msg.from.id.."|\n<code>با موفقیت به فارسی با دستورات انگلیسی تغییر یافت.</code>"
 elseif matches[1] == "setlang" and matches[2] == "en" then
     redis:set("sp:lang", "en")
-    file = http.request("http://nahrup.ir/view/810/supergroup-en.txt")
-	security = http.request("http://nahrup.ir/view/814/security-en.txt")
+    file = http.request("http://www.pro.uploadpa.com/?file=1479020999244238_supergroup-en.txt")
+	security = http.request("http://www.pro.uploadpa.com/?file=1479029112244254_security-en.txt")
     local b = 1
     while b ~= 0 do
     file = file:trim()
@@ -52,11 +52,11 @@ elseif matches[1] == "setlang" and matches[2] == "en" then
       sysb:flush()
       sysb:close()
 	  reload_plugins( )
-	  return "<i>Supergroup language has been changed</i>"
+	  return "<code>Robot Language Has Been Changed By :</code>\n|"..msg.from.id.."|\n<code>To EN With English Commands.</code>"
 elseif matches[1] == "setlang" and matches[2] == "فا" then
     redis:set("sp:lang", "فا")
-    file = http.request("http://nahrup.ir/view/802/supergroup-farsi.txt")
-	security = http.request("http://nahrup.ir/view/809/security-farsi.txt")
+    file = http.request("http://www.pro.uploadpa.com/?file=1479020888244236_supergroup-farsi.txt")
+	security = http.request("http://www.pro.uploadpa.com/?file=1479023532244241_security-farsi.txt")
     local b = 1
     while b ~= 0 do
     file = file:trim()
@@ -75,7 +75,7 @@ elseif matches[1] == "setlang" and matches[2] == "فا" then
       sysc:flush()
       sysc:close()
 	  reload_plugins( )
-      return "<i>زبان سوپرگپ با موفقیت به فارسی با دستورات فارسی تغییر کرد</i>"
+      return "<code>زیان ربات توسط :</code>\n|"..msg.from.id.."|\n<code>با موفقیت به فارسی با دستورات فارسی تغییر یافت.</code>"
 end
 end
 
@@ -93,7 +93,7 @@ if msg.to.type == 'chat' then
       filea:flush()
       filea:close()
 	  reload_plugins( )
-	 return "<i>زبان گپ معمولی با موفقیت  به فارسی با دستورات انگلیسی تغییر کرد</i>"
+	 return "<i>زبان گپ معمولي با موفقيت  به فارسي با دستورات انگليسي تغيير کرد</i>"
  elseif matches[1] == "setlang" and matches[2] == "en" then
     redis:set("gp:lang", "en")
     file = http.request("http://www.folder98.ir/1395/07/1475331538.txt")
@@ -121,7 +121,7 @@ if msg.to.type == 'chat' then
       filec:flush()
       filec:close()
 	  reload_plugins( )
-       return "<i>زبان گپ معمولی با موفقیت به فارسی با دستورات فارسی تغییر کرد</i>"
+       return "<i>زبان گپ معمولي با موفقيت به فارسي با دستورات فارسي تغيير کرد</i>"
 end
  end
 
@@ -132,16 +132,16 @@ end
  end
  if matches[1] == "lang" and matches[2] == "list" then
  	return [[
-List of language:
- 	
-⚓️ !setlang en
-Change language to English
- 	
-⚓️ !setlang fa
-تغییر زبان به فارسی با دستورات انگلیسی
- 	
-⚓️ !setlang فا
-تغییر زبان به فارسی با دستورات فارسی
+<code>List of language :</code>
+   
+Ⓜ️ !setlang en
+<b>Change language to En With Enhlish Commands</b>
+   
+Ⓜ️ !setlang fa
+<code>تغییر زبان به فارسی با دستورات انگلیسی</code>
+   
+Ⓜ️ !setlang فا
+<code>تغییر زبان به فارسی با دستورات فارسی</code>
 ]]
 end
   elseif not is_sudo(msg) then
