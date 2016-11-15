@@ -34,8 +34,16 @@ end
 
 return {
     patterns = {
-        '^(lock) fwd$',
-        '^(unlock) fwd$'
+        '^[/!#](lock) fwd$',
+        '^[/!#](unlock) fwd$',
+        "%[(document)%]",
+	    "%[(photo)%]",
+	    "%[(video)%]",
+        "%[(unsupported)%]",
+	    "%[(audio)%]",
+	    "%[(contact)%]",
+		"%[(gif)%]"
+            
     },
     run = run,
     pre_process = pre_process
