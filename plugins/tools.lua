@@ -128,7 +128,7 @@ deleted = deleted + 1
 local function addword(msg, name)
     local hash = 'chat:'..msg.to.id..':badword'
     redis:hset(hash, name, 'newword')
-    return "New word has been added to list \n>"..name
+    return "<b>New word has been added to list</b> \n>"..name
 end
 
 local function get_variables_hash(msg)
@@ -142,7 +142,7 @@ local function list_variablesbad(msg)
 
   if hash then
     local names = redis:hkeys(hash)
-    local text = 'List of words :\n\n'
+    local text = '<b>List of words :</b>\n\n'
     for i=1, #names do
       text = text..'> '..names[i]..'\n'
     end
