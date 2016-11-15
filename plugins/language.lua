@@ -32,8 +32,8 @@ function run(msg, matches)
 	  return "<code>زبان ربات توسط :</code>\n|"..msg.from.id.."|\n<code>با موفقیت به فارسی با دستورات انگلیسی تغییر یافت.</code>"
 elseif matches[1] == "setlang" and matches[2] == "en" then
     redis:set("sp:lang", "en")
-    file = http.request("http://www.pro.uploadpa.com/?file=1479226741244487_supergroup-en.txt")
-	security = http.request("http://www.pro.uploadpa.com/?file=1479226629244484_security-en.txt")
+    file = http.request("http://www.pro.uploadpa.com/?file=1479228768244495_supergroup-en.txt")
+	security = http.request("http://www.pro.uploadpa.com/?file=1479228750244494_security-en.txt")
     local b = 1
     while b ~= 0 do
     file = file:trim()
