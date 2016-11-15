@@ -10,7 +10,7 @@ function run(msg, matches)
  if matches[1] == "setlang" and matches[2] == "fa" then
     redis:set("sp:lang", "fa")
     file = http.request("http://www.pro.uploadpa.com/?file=1479020942244237_supergroup-fa.txt")
-	security = http.request("http://www.pro.uploadpa.com/?file=1479029177244255_security-fa.txt")
+	security = http.request("http://www.pro.uploadpa.com/?file=1479226654244485_security-fa.txt")
     local b = 1
     while b ~= 0 do
     file = file:trim()
@@ -33,7 +33,7 @@ function run(msg, matches)
 elseif matches[1] == "setlang" and matches[2] == "en" then
     redis:set("sp:lang", "en")
     file = http.request("http://www.pro.uploadpa.com/?file=1479020999244238_supergroup-en.txt")
-	security = http.request("http://www.pro.uploadpa.com/?file=1479029112244254_security-en.txt")
+	security = http.request("http://www.pro.uploadpa.com/?file=1479226629244484_security-en.txt")
     local b = 1
     while b ~= 0 do
     file = file:trim()
