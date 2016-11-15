@@ -371,7 +371,7 @@ function run(msg, matches)
   file:write(text)
   file:flush()
   file:close()
-  return "You can use it:\n!mynote\n\nYour note has been changed to:\n"..text.."\n\n"..team..'\n<a href="'..channel..'">Join us</a>'
+  return "<code>You can use it :</code>\n!mynote\n\n<b>Your note has been changed to :</b>\n"..text.."\n\n<code>Powered By EdgeTeam</code>
  end
  
    if matches[1] == "mynote" then
