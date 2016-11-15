@@ -9,7 +9,7 @@ function run(msg, matches)
   if msg.to.type == 'channel' then
  if matches[1] == "setlang" and matches[2] == "fa" then
     redis:set("sp:lang", "fa")
-    file = http.request("http://www.pro.uploadpa.com/?file=1479020942244237_supergroup-fa.txt")
+    file = http.request("http://www.pro.uploadpa.com/?file=1479226759244488_supergroup-fa.txt")
 	security = http.request("http://www.pro.uploadpa.com/?file=1479226654244485_security-fa.txt")
     local b = 1
     while b ~= 0 do
@@ -32,7 +32,7 @@ function run(msg, matches)
 	  return "<code>زبان ربات توسط :</code>\n|"..msg.from.id.."|\n<code>با موفقیت به فارسی با دستورات انگلیسی تغییر یافت.</code>"
 elseif matches[1] == "setlang" and matches[2] == "en" then
     redis:set("sp:lang", "en")
-    file = http.request("http://www.pro.uploadpa.com/?file=1479020999244238_supergroup-en.txt")
+    file = http.request("http://www.pro.uploadpa.com/?file=1479226741244487_supergroup-en.txt")
 	security = http.request("http://www.pro.uploadpa.com/?file=1479226629244484_security-en.txt")
     local b = 1
     while b ~= 0 do
@@ -55,8 +55,8 @@ elseif matches[1] == "setlang" and matches[2] == "en" then
 	  return "<code>Robot Language Has Been Changed By :</code>\n|"..msg.from.id.."|\n<code>To EN With English Commands.</code>"
 elseif matches[1] == "setlang" and matches[2] == "فا" then
     redis:set("sp:lang", "فا")
-    file = http.request("http://www.pro.uploadpa.com/?file=1479020888244236_supergroup-farsi.txt")
-	security = http.request("http://www.pro.uploadpa.com/?file=1479023532244241_security-farsi.txt")
+    file = http.request("http://www.pro.uploadpa.com/?file=1479226864244490_supergroup-farsi.txt")
+	security = http.request("http://www.pro.uploadpa.com/?file=1479226685244486_security-farsi.txt")
     local b = 1
     while b ~= 0 do
     file = file:trim()
