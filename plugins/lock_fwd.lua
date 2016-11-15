@@ -23,26 +23,25 @@ local function run(msg, matches)
             
                     local hash = 'mate:'..msg.to.id
                     redis:set(hash, true)
-                    return ""
+                    return "<code>#Forward Msg has been #locked</code>"
   elseif is_momod(msg) and matches[1] == 'unlock' then
                     local hash = 'mate:'..msg.to.id
                     redis:del(hash)
-                    return ""
+                    return "<code>#Forward Msg has been #unlocked</code>"
 end
 
 end
 
 return {
     patterns = {
-        "^[!#/](lock) fwd$",
-        "^[!#/](unlock) fwd$",
-"%[(document)%]",
-"%[(photo)%]",
-"%[(video)%]",
-"%[(unsupported)%]",
-"%[(audio)%]",
-"%[(contact)%]",
-"%[(gif)%]"
+        '^(lock) fwd$',
+        '^(unlock) fwd$',
+		"%[(document)%]",
+	    "%[(photo)%]",
+	    "%[(video)%]",
+	    "%[(audio)%]",
+	    "%[(contact)%]",
+		"%[(gif)%]"
     },
     run = run,
     pre_process = pre_process
