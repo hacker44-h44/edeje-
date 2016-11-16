@@ -232,10 +232,10 @@ function run(msg, matches)
 			   if not is_owner(msg) and not is_sudo(msg) then
 				   redis:setex("wait:"..msg.from.id, 30, true)
 				   redis:set("sticker:photo", "waiting")
-    	     return '<B>Please Send Your Sticker Now</b>\n\n<code>Powered By EdgeTeam</code>\n<b>Join Us :</b> @SpartaSoft'
+    	     return '<B>Please Send Your Sticker Now</b>\n\n<code>Powered By Spartacus Team</code>\n<b>Join Us :</b> @SpartaSoft'
 				 end
     	redis:set("sticker:photo", "waiting")
-    	return '<b>Please Send Your Sticker Now</b>\n\n<code>Powered By EdgeTeam</code>\n<b>Join Us :</b> @SpartaSoft'
+    	return '<b>Please Send Your Sticker Now</b>\n\n<code>Powered By Spartacus Team</code>\n<b>Join Us :</b> @SpartaSoft'
 			elseif redis:get("wait:"..msg.from.id) then
 			return "<i>Please wait for 30 second.</i>"
 			end
@@ -244,10 +244,10 @@ function run(msg, matches)
 			   if not is_owner(msg) and not is_sudo(msg) then
 				   redis:setex("wait:"..msg.from.id, 30, true)
 				   redis:set("photo:sticker", "waiting")
-           return '<b>Please Send Your Photo Now</b>\n\n<code>Powered By EdgeTeam</code>\n<b>Join Us :</b> @SpartaSoft'
+           return '<b>Please Send Your Photo Now</b>\n\n<code>Powered By Spartacus Team</code>\n<b>Join Us :</b> @SpartaSoft'
 				 end
       redis:set("photo:sticker", "waiting")
-      return '<b>Please Send Your Photo Now</b>\n\n<code>Powered By EdgeTeam</code>\n<b>Join Us :</b> @SpartaSoft'
+      return '<b>Please Send Your Photo Now</b>\n\n<code>Powered By Spartacus Team</code>\n<b>Join Us :</b> @SpartaSoft'
 		  elseif redis:get("wait:"..msg.from.id) then
 			return "<i>Please wait for 30 second.</i>"
 			end
