@@ -8,7 +8,6 @@ update() {
   git submodule update --init --recursive
   install_rocks
 }
-#By: @AdvanTm
 # Will install luarocks on THIS_DIR/.luarocks
 install_luarocks() {
   git clone https://github.com/keplerproject/luarocks.git
